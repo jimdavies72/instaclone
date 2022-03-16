@@ -1,4 +1,4 @@
-.photo-container {
+.photo {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,5 +8,5 @@
 img {
   border-style: none;
   margin: 0;
-  padding: 5px 10px;
+  padding: 5px 5px;
 }

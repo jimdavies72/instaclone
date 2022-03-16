@@ -1,11 +1,8 @@
 .photo-container {
-  width: 100%;
-  background-color: red;
+  width: 50%;
   margin: 10px auto;
   display: flex;
-  flex: 3;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-around;
   flex-direction: row;
   flex-wrap: wrap;
 }
