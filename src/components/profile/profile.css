@@ -1,0 +1,76 @@
+.profile-page {
+  max-width: 400px;
+  width: 50%;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.profile-form {
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-bottom: 1px solid var(--col-med-grey);
+}
+
+.profile-form > * {
+  width: 100%;
+}
+
+input,
+.form-submit {
+  width: 100%;
+  margin: 5px;
+}
+
+.profile-inputs {
+  margin: 0 auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.password {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.password > * {
+  margin: 0;
+}
+
+.fas {
+  padding-bottom: 4px;
+  color: slateblue;
+}
+
+.fas:hover {
+  cursor: pointer;
+}
+
+button {
+  padding: 7px 10px;
+  background-color: slateblue;
+  color: var(--col-white);
+  font-weight: bold;
+  border: 0;
+  border-radius: 5px;
+}

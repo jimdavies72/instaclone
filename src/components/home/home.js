@@ -1,9 +1,9 @@
 import "./home.css";
-
 import { useState } from "react";
+import { Navigate } from "react-router-dom";
 import { PhotoContainer } from "../photoContainer/photoContainer";
 
-export const Home = () => {
+export const Home = ({ user, setUser }) => {
   const [photos, setPhotos] = useState([]);
 
   const fetchPhotos = async () => {
@@ -11,7 +11,6 @@ export const Home = () => {
       const response = await fetch("https://picsum.photos/v2/list");
       const data = await response.json();
       setPhotos(data);
-      //console.log(data);
     } catch (error) {
       console.log(error);
     }
@@ -19,6 +18,7 @@ export const Home = () => {
 
   return (
     <>
+      {!user && <Navigate to="/" />}
       <button onClick={fetchPhotos}>Get Photos</button>
       <div className="photo-container">
         {photos.map((photo, index) => (

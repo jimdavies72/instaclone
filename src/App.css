@@ -40,10 +40,15 @@ html {
 }
 
 :root {
+  /* fonts */
+
   --ff-logo: "Oleo Script Swash Caps", sans-serif;
   --ff-heading: "Quicksand", sans-serif;
   --ff-sub-heading: "Abel", sans-serif;
   --ff-para: "Nunito Sans", sans-serif;
+
+  /* colour palette */
+
   --col-white: white;
   --col-off-white: #faf9f6;
   --col-black: black;
@@ -58,11 +63,17 @@ html {
   --col-orange-red: orangered;
   --col-med-orange: orange;
   --col-light-seashell: #fff2eb;
+
+  /* shading */
+
   --light-shadow: 4px 5px 5px 0px rgba(0, 0, 0, 0.51);
   --dark-shadow: 22px 22px 15px -10px rgba(0, 0, 0, 0.66);
   --inset-shadow: 4px 5px 6px -2px rgba(0, 0, 0, 0.75) inset;
   --top-shadow: -2px -8px 17px -7px rgba(0, 0, 0, 0.4);
   --text-shadow: 2px 2px 1px rgba(255, 255, 255, 1);
+
+  /* transitions */
+
   --transition-slow: 1s;
   --transition-med: 0.75s;
   --transition-fast: 0.5s;
@@ -96,6 +107,8 @@ input {
   padding: 3px 5px;
   margin: 8px 0;
   border: none;
+  font-size: 15px;
+  color: var(--col-charcoal-grey);
   border-bottom: 1px solid var(--col-med-grey);
   outline: none;
 }

@@ -1,27 +1,72 @@
 import "./login.css";
-import { useState } from "react";
-import { createUser, login } from "../../utils";
+import { useState, useEffect } from "react";
+import { Navigate } from "react-router-dom";
+import { fetchRequest, tokenizedFetch } from "../../utils";
 
-export const Login = ({ setUser }) => {
+export const Login = ({ user, setUser }) => {
   const [username, setUsername] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [bool, setBool] = useState(true);
+  const [actionSuccess, setActionSuccess] = useState();
   const [passwordShown, setPasswordShown] = useState(false);
 
-  const submitHandler = (e) => {
-    e.preventDefault();
+  const tokenFetch = async () => {
+    const payload = null;
+    const data = await tokenizedFetch("user", payload, "GET");
+    setUser(data.user);
+  };
 
-    if (bool) {
-      login(username, password, setUser);
-    } else if (email && email.includes("@")) {
-      //setUser({ username: username, email: email, password: password });
-      createUser(username, email, password, setUser);
+  useEffect(() => {
+    if (localStorage.key("m34Token")) {
+      tokenFetch();
+      //tokenLogin(setUser);
+    }
+  }, [setUser]);
+
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    let payload;
+    let endpoint;
+    if (bool && username && password) {
+      //Manual Login User
+
+      payload = JSON.stringify({
+        username: username,
+        password: password,
+      });
+
+      endpoint = "login";
+    } else if (username && email && password && email.includes("@")) {
+      // Create New User
+
+      payload = JSON.stringify({
+        username: username,
+        email: email,
+        password: password,
+      });
+
+      endpoint = "user";
+    } else {
+      setActionSuccess("Required fields are missing");
+      return;
+    }
+
+    const data = await fetchRequest(endpoint, payload, "POST");
+
+    if (data.err) {
+      setActionSuccess(data.err);
+    } else {
+      setActionSuccess("User registered successfully");
+      setUser(data.user);
+      localStorage.setItem("m34Token", data.token);
     }
   };
 
   return (
     <div className="login-form">
+      {user && <Navigate to="/home" />}
+      {bool ? <h3>Please Login</h3> : <h3>Please Sign Up</h3>}
       <form onSubmit={submitHandler}>
         <div className="login-inputs">
           <input
@@ -38,6 +83,7 @@ export const Login = ({ setUser }) => {
             <input
               onChange={(event) => setPassword(event.target.value)}
               placeholder="Password"
+              autoComplete="off"
               type={passwordShown ? "text" : "password"}
             />
             {passwordShown ? (
@@ -52,9 +98,15 @@ export const Login = ({ setUser }) => {
               ></i>
             )}
           </div>
-          <button className="form-submit" type="submit">
-            Submit
-          </button>
+          {bool ? (
+            <button className="form-submit" type="submit">
+              Login
+            </button>
+          ) : (
+            <button className="form-submit" type="submit">
+              Sign Up
+            </button>
+          )}
         </div>
       </form>
       {bool ? (
@@ -62,6 +114,7 @@ export const Login = ({ setUser }) => {
       ) : (
         <button onClick={() => setBool(!bool)}>Need to log in?</button>
       )}
+      <h3>{actionSuccess}</h3>
     </div>
   );
 };
