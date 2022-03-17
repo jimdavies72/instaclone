@@ -19,7 +19,9 @@ export const Home = ({ user, setUser }) => {
   return (
     <>
       {!user && <Navigate to="/" />}
-      <button onClick={fetchPhotos}>Get Photos</button>
+      <button id="get" onClick={fetchPhotos}>
+        Get Photos
+      </button>
       <div className="photo-container">
         {photos.map((photo, index) => (
           <PhotoContainer key={index} photo={photo} />

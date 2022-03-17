@@ -1,8 +1,12 @@
 .photo-container {
-  width: 50%;
+  width: 80%;
   margin: 10px auto;
   display: flex;
   justify-content: space-around;
   flex-direction: row;
   flex-wrap: wrap;
+}
+
+#get {
+  box-shadow: var(--light-shadow);
 }
