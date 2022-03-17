@@ -11,11 +11,12 @@ export const UpdatePassword = ({ user }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const payload = JSON.stringify({
-      password: newPassword,
-    });
 
-    const data = await tokenizedFetch("user", payload, "PATCH");
+    const data = await tokenizedFetch(
+      "user",
+      { password: newPassword },
+      "PATCH"
+    );
     if (data.err) {
       setUpdateSuccess(data.err);
     } else {
