@@ -5,7 +5,7 @@ export const fetchRequest = async (endpoint, payload, httpVerb) => {
       {
         method: httpVerb,
         headers: { "Content-Type": "application/json" },
-        body: payload,
+        body: payload ? JSON.stringify(payload) : null,
       }
     );
 
@@ -31,7 +31,7 @@ export const tokenizedFetch = async (endpoint, payload, httpVerb) => {
           "Content-Type": "application/json",
           Authorization: `Bearer ${localStorage.getItem("m34Token")}`,
         },
-        body: payload,
+        body: payload ? JSON.stringify(payload) : null,
       }
     );
     const data = await response.json();

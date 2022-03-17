@@ -10,9 +10,7 @@ export const DeleteUser = ({ user, clearUserHandler }) => {
     e.preventDefault();
 
     if (username === user) {
-      const payload = null;
-
-      const data = await tokenizedFetch(`user/${user}`, payload, "DELETE");
+      const data = await tokenizedFetch(`user/${user}`, null, "DELETE");
 
       if (data.err) {
         setDeleteSuccess(data.err);

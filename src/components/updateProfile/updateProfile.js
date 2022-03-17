@@ -8,12 +8,12 @@ export const UpdateProfile = ({ user }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const payload = JSON.stringify({
+    const payload = {
       filterKey: "username",
       filterVal: user,
       updateKey: "email",
       updateVal: email,
-    });
+    };
 
     const data = await fetchRequest("user", payload, "PUT");
     if (data.err) {

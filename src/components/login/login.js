@@ -12,8 +12,7 @@ export const Login = ({ user, setUser }) => {
   const [passwordShown, setPasswordShown] = useState(false);
 
   const tokenFetch = async () => {
-    const payload = null;
-    const data = await tokenizedFetch("user", payload, "GET");
+    const data = await tokenizedFetch("user", null, "GET");
     setUser(data.user);
   };
 
@@ -31,20 +30,13 @@ export const Login = ({ user, setUser }) => {
     if (bool && username && password) {
       //Manual Login User
 
-      payload = JSON.stringify({
-        username: username,
-        password: password,
-      });
+      payload = { username: username, password: password };
 
       endpoint = "login";
     } else if (username && email && password && email.includes("@")) {
       // Create New User
 
-      payload = JSON.stringify({
-        username: username,
-        email: email,
-        password: password,
-      });
+      payload = { username: username, email: email, password: password };
 
       endpoint = "user";
     } else {
@@ -114,7 +106,7 @@ export const Login = ({ user, setUser }) => {
       ) : (
         <button onClick={() => setBool(!bool)}>Need to log in?</button>
       )}
-      <h3>{actionSuccess}</h3>
+      <h3 className="action-success">{actionSuccess}</h3>
     </div>
   );
 };
