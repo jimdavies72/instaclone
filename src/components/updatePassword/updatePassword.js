@@ -31,27 +31,6 @@ export const UpdatePassword = ({ user }) => {
         <div className="profile-inputs">
           <div className="password">
             <input
-              placeholder="current password"
-              name="currentPassword"
-              value={currentPassword}
-              onChange={(e) => setCurrentPassword(e.target.value)}
-              autoComplete="off"
-              type={currentPasswordShown ? "text" : "password"}
-            />
-            {currentPasswordShown ? (
-              <i
-                onClick={() => setCurrentPasswordShown(!currentPasswordShown)}
-                className="fas fa-eye-slash"
-              ></i>
-            ) : (
-              <i
-                onClick={() => setCurrentPasswordShown(!currentPasswordShown)}
-                className="fas fa-eye"
-              ></i>
-            )}
-          </div>
-          <div className="password">
-            <input
               placeholder="new password"
               name="newPassword"
               value={newPassword}
