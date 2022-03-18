@@ -31,6 +31,7 @@ export const DeleteUser = ({ user, clearUserHandler }) => {
             placeholder="username"
             type="text"
             name="username"
+            maxlength="15"
             value={username && username.toLowerCase()}
             onChange={(e) => setUsername(e.target.value)}
           />
