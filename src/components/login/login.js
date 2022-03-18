@@ -63,6 +63,7 @@ export const Login = ({ user, setUser }) => {
         <div className="login-inputs">
           <input
             value={username && username.toLowerCase()}
+            maxlength="15"
             onChange={(event) => setUsername(event.target.value)}
             placeholder="Username"
           />
