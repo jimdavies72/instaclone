@@ -62,11 +62,13 @@ export const Login = ({ user, setUser }) => {
       <form onSubmit={submitHandler}>
         <div className="login-inputs">
           <input
+            value={username && username.toLowerCase()}
             onChange={(event) => setUsername(event.target.value)}
             placeholder="Username"
           />
           {!bool && (
             <input
+              value={email && email.toLowerCase()}
               onChange={(event) => setEmail(event.target.value)}
               placeholder="Email"
             />
