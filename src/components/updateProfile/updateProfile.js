@@ -31,7 +31,7 @@ export const UpdateProfile = ({ user }) => {
             placeholder="update email"
             type="email"
             name="email"
-            value={email}
+            value={email && email.toLowerCase()}
             onChange={(e) => setEmail(e.target.value)}
           />
           <button className="form-submit" type="submit">

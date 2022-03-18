@@ -31,7 +31,7 @@ export const DeleteUser = ({ user, clearUserHandler }) => {
             placeholder="username"
             type="text"
             name="username"
-            value={username}
+            value={username && username.toLowerCase()}
             onChange={(e) => setUsername(e.target.value)}
           />
           <button className="form-submit" type="submit">
