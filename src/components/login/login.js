@@ -66,18 +66,21 @@ export const Login = ({ user, setUser }) => {
             maxlength="15"
             onChange={(event) => setUsername(event.target.value)}
             placeholder="Username"
+            required
           />
           {!bool && (
             <input
               value={email && email.toLowerCase()}
               onChange={(event) => setEmail(event.target.value)}
               placeholder="Email"
+              required
             />
           )}
           <div className="password">
             <input
               onChange={(event) => setPassword(event.target.value)}
               placeholder="Password"
+              required
               autoComplete="off"
               type={passwordShown ? "text" : "password"}
             />
