@@ -17,9 +17,8 @@ export const Login = ({ user, setUser }) => {
   };
 
   useEffect(() => {
-    if (localStorage.key("m34Token")) {
+    if (localStorage.getItem("m34Token") !== null) {
       tokenFetch();
-      //tokenLogin(setUser);
     }
   }, [setUser]);
 
